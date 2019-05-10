@@ -1,0 +1,14 @@
+./web -- app with react-native-web
+./web/rncliapp -- app with react-native
+
+
+done
+./web draw ./web/rncliapp with simple <View><Text>Simple Text</Text></View>
+
+next step
+./web/rncliapp add react-navigation
+./web draw web/rncliapp with navigation
+move ./web/rncliapp to ./rncliapp
+./web draw ./rncliapp
+
+./aliases.config.js ? -- settings about ./rncliapp for ./web
