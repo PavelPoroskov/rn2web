@@ -5,17 +5,11 @@
 done
 ./web draw ./web/rncliapp with simple <View><Text>Simple Text</Text></View>
 ./web/rncliapp add react-navigation
+./web draw web/rncliapp with navigation
+	after add init <style> to index.html it work
 
 next step
-step) ./web draw web/rncliapp with navigation
----------------------------------------------
-NativeAnimatedHelper.js:203 Animated: `useNativeDriver` is not supported because the native animated module is missing. Falling back to JS-based animation. To resolve this, add `RCTAnimation` module to this app, or remove `useNativeDriver`. More info: https://github.com/facebook/react-native/issues/11094#issuecomment-263240420
-shouldUseNativeDriver @ NativeAnimatedHelper.js:203
-webpack:///./rncliapp/node_modules/react-native-gesture-handler/createHandler.web.js?:1 PanGestureHandler is not yet supported on web.
-componentDidMount @ webpack:///./rncliapp/node_modules/react-native-gesture-handler/createHandler.web.js?:1
-
-but "expo start --web" render with this warnings
-
+=========
 move ./web/rncliapp to ./rncliapp
 ./web draw ./rncliapp
 

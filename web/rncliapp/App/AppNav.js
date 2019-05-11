@@ -21,17 +21,18 @@ const MainNavigator = createStackNavigator({
 },
 {
   //debug
-  //initialRouteName: "About",
-  initialRouteName: "Quotes"
+  initialRouteName: "About",
+  //initialRouteName: "Quotes"
 });
 
 const AppContainer = createAppContainer(MainNavigator);
+//export default AppContainer
 
-// class App extends React.Component {
-//   render() {
-//     return <AppContainer />
-//   }
-// }
+class App extends React.Component {
+  render() {
+    console.log('render AppContainer')
+    return <AppContainer />
+  }
+}
 
-export default AppContainer
-
+export default App

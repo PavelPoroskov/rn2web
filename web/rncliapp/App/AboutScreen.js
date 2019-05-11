@@ -7,6 +7,8 @@ export default class AboutScreen extends React.Component {
   }
   render() {
     const { navigate } = this.props.navigation
+    console.log('render AboutScreen')
+
     return (
       <View>
         <Button title='Go to Quotes' onPress={() => navigate('Quotes')} />

@@ -24,6 +24,9 @@ const babelLoaderConfiguration = {
     // path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation-drawer'),
     path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation'),
     path.resolve(appDirectory, 'rncliapp/node_modules/@react-navigation'),
+    path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation-stack'),
+    path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation-drawer'),
+    path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation-tabs'),
 
     path.resolve(appDirectory, 'rncliapp/node_modules/react-native-gesture-handler'),
 
@@ -37,7 +40,12 @@ const babelLoaderConfiguration = {
       presets: ['module:metro-react-native-babel-preset'],
 //      presets: ['babel-preset-expo'],
       // Re-write paths to import only the modules needed by the app
-      plugins: ['react-native-web']
+
+      //not render with or without
+      plugins: [
+        'react-native-web',
+        //["react-native-web", { commonjs: true }]
+      ]
     }
   }
 };
@@ -86,18 +94,25 @@ module.exports = {
       'react-native$': 'react-native-web',
 //      'react-native': 'react-native-web',
 
-      // 'react': path.resolve(appDirectory, 'node_modules/react'),
+//      'react': path.resolve(appDirectory, 'node_modules/react'),
       // 'react-dom': path.resolve(appDirectory, 'node_modules/react-dom'),
     },
     // If you're working on a multi-platform React Native app, web-specific
     // module implementations should be written in files using the extension
     // `.web.js`.
+
+    //modules: [path.resolve(appDirectory, 'node_modules'), path.resolve(appDirectory, 'rncliapp/node_modules') ],
+
     extensions: [ '.web.js', '.js' ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    //new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       __DEV__: false
     }),
   ],
+  // optimization: {
+  //   // We no not want to minimize our code.
+  //   minimize: false
+  // },
 }
