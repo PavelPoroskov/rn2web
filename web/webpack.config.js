@@ -82,10 +82,10 @@ module.exports = {
 
       //after move rn-app from subfolder
       'react-native-web': path.resolve( appDirectory, 'node_modules/react-native-web' ),
-//      'react-native': 'react-native-web',
 
-//      'react': path.resolve(appDirectory, 'node_modules/react'),
-      // 'react-dom': path.resolve(appDirectory, 'node_modules/react-dom'),
+      //need "bla-bla-bla invariant vialotion", rn-app use hooks
+      'react': path.resolve(appDirectory, 'node_modules/react'),
+      'react-dom': path.resolve(appDirectory, 'node_modules/react-dom'),
     },
     // If you're working on a multi-platform React Native app, web-specific
     // module implementations should be written in files using the extension
