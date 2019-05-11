@@ -11,7 +11,9 @@
 import React from 'react';
 import { AppRegistry } from "react-native";
 //import App from "./App";
-import App from './rncliapp/App';
+
+//import App from './rncliapp/App';
+import App from '../rncliapp/App';
 
 AppRegistry.registerComponent("App", () => App);
 

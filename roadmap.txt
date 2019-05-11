@@ -7,13 +7,12 @@ done
 ./web/rncliapp add react-navigation
 ./web draw web/rncliapp with navigation
 	after add init <style> to index.html it work
+move ./web/rncliapp to ./rncliapp
+./web draw ./rncliapp
+	webpack: resolve.alias add 'react-native-web': path.resolve( appDirectory, 'node_modules/react-native-web' ),
+./web/include.config.js -- settings about ./rncliapp for ./web
 
 next step
 =========
-move ./web/rncliapp to ./rncliapp
-./web draw ./rncliapp
-
-./aliases.config.js ? -- settings about ./rncliapp for ./web
-
-add eslint
+?add eslint
 	eslint-hooks 

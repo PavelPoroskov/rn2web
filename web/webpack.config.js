@@ -3,6 +3,8 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const arInclude = require('./include.config');
+
 //const appDirectory = path.resolve(__dirname, '../');
 const appDirectory = path.resolve(__dirname)
 
@@ -16,21 +18,7 @@ const babelLoaderConfiguration = {
   // Add every directory that needs to be compiled by Babel during the build.
   include: [
     path.resolve(appDirectory, 'index.js'),
-    path.resolve(appDirectory, 'rncliapp/App'),
-    //path.resolve(appDirectory, 'node_modules/react-native-uncompiled'),
-
-    // path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation-stack'),
-    // path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation-tabs'),
-    // path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation-drawer'),
-    path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation'),
-    path.resolve(appDirectory, 'rncliapp/node_modules/@react-navigation'),
-    path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation-stack'),
-    path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation-drawer'),
-    path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation-tabs'),
-
-    path.resolve(appDirectory, 'rncliapp/node_modules/react-native-gesture-handler'),
-
-    path.resolve(appDirectory, 'rncliapp/node_modules/react-native-tab-view'),    
+    ...arInclude
   ],
   use: {
     loader: 'babel-loader',
@@ -41,7 +29,6 @@ const babelLoaderConfiguration = {
 //      presets: ['babel-preset-expo'],
       // Re-write paths to import only the modules needed by the app
 
-      //not render with or without
       plugins: [
         'react-native-web',
         //["react-native-web", { commonjs: true }]
@@ -92,6 +79,9 @@ module.exports = {
     // This will only alias the exact import "react-native"
     alias: {
       'react-native$': 'react-native-web',
+
+      //after move rn-app from subfolder
+      'react-native-web': path.resolve( appDirectory, 'node_modules/react-native-web' ),
 //      'react-native': 'react-native-web',
 
 //      'react': path.resolve(appDirectory, 'node_modules/react'),
