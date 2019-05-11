@@ -35,6 +35,7 @@ const babelLoaderConfiguration = {
       cacheDirectory: true,
       // The 'react-native' preset is recommended to match React Native's packager
       presets: ['module:metro-react-native-babel-preset'],
+//      presets: ['babel-preset-expo'],
       // Re-write paths to import only the modules needed by the app
       plugins: ['react-native-web']
     }
@@ -83,6 +84,10 @@ module.exports = {
     // This will only alias the exact import "react-native"
     alias: {
       'react-native$': 'react-native-web',
+//      'react-native': 'react-native-web',
+
+      // 'react': path.resolve(appDirectory, 'node_modules/react'),
+      // 'react-dom': path.resolve(appDirectory, 'node_modules/react-dom'),
     },
     // If you're working on a multi-platform React Native app, web-specific
     // module implementations should be written in files using the extension
