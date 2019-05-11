@@ -12,3 +12,6 @@ move ./web/rncliapp to ./rncliapp
 ./web draw ./rncliapp
 
 ./aliases.config.js ? -- settings about ./rncliapp for ./web
+
+add eslint
+	eslint-hooks 
