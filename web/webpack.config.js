@@ -17,7 +17,17 @@ const babelLoaderConfiguration = {
   include: [
     path.resolve(appDirectory, 'index.js'),
     path.resolve(appDirectory, 'rncliapp/App'),
-    path.resolve(appDirectory, 'node_modules/react-native-uncompiled')
+    //path.resolve(appDirectory, 'node_modules/react-native-uncompiled'),
+
+    // path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation-stack'),
+    // path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation-tabs'),
+    // path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation-drawer'),
+    path.resolve(appDirectory, 'rncliapp/node_modules/react-navigation'),
+    path.resolve(appDirectory, 'rncliapp/node_modules/@react-navigation'),
+
+    path.resolve(appDirectory, 'rncliapp/node_modules/react-native-gesture-handler'),
+
+    path.resolve(appDirectory, 'rncliapp/node_modules/react-native-tab-view'),    
   ],
   use: {
     loader: 'babel-loader',
@@ -72,7 +82,7 @@ module.exports = {
   resolve: {
     // This will only alias the exact import "react-native"
     alias: {
-      'react-native$': 'react-native-web'
+      'react-native$': 'react-native-web',
     },
     // If you're working on a multi-platform React Native app, web-specific
     // module implementations should be written in files using the extension
@@ -80,6 +90,9 @@ module.exports = {
     extensions: [ '.web.js', '.js' ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      __DEV__: false
+    }),
   ],
 }
