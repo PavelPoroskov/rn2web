@@ -3,6 +3,7 @@
 
 
 done
+====
 ./web draw ./web/rncliapp with simple <View><Text>Simple Text</Text></View>
 ./web/rncliapp add react-navigation
 ./web draw web/rncliapp with navigation
@@ -11,8 +12,21 @@ move ./web/rncliapp to ./rncliapp
 ./web draw ./rncliapp
 	webpack: resolve.alias add 'react-native-web': path.resolve( appDirectory, 'node_modules/react-native-web' ),
 ./web/include.config.js -- settings about ./rncliapp for ./web
+hooks in rn-app
+	webpack: resolve.alias add 'react': path.resolve( appDirectory, 'node_modules/react' ),
+	webpack: resolve.alias add 'react-dom': path.resolve( appDirectory, 'node_modules/react-dom' ),
 
 next step
 =========
 ?add eslint
 	eslint-hooks 
+
+
+//it vanished
+react-dom.development.js:506 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.
+    in VirtualizedList (created by FlatList)
+    in FlatList (at QuotesTable.js:130)
+    in div (created by View)
+    in View (at QuotesTable.js:121)
+    in QuotesTableFlat (at QuotesTableConnected.js:25)
+warningWithoutStack @ react-dom.development.js:506

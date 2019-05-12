@@ -1,6 +1,9 @@
 import React from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 
+import QuotesTableConnected from './QuotesTableConnected'
+
+
 const styles = StyleSheet.create({
   fullHeight: {
     //    height: '100vh',
@@ -13,7 +16,7 @@ export default class QuotesScreen extends React.Component {
     title: 'Quotes',
   }
   render() {
-    console.log('render QuotesScreen')
+    //console.log('render QuotesScreen')
     const { navigate } = this.props.navigation
 
     return (
@@ -22,6 +25,7 @@ export default class QuotesScreen extends React.Component {
         <View>
           <Text>QuotesScreen Nav</Text>
         </View>
+        <QuotesTableConnected />
       </View>
     )
   }
