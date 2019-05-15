@@ -23,6 +23,7 @@ function useAppIsActive() {
       AppState.removeEventListener('change', _handleAppStateChange)
     }
   }, [_handleAppStateChange])
+//  }, [])
 
   return active
 }

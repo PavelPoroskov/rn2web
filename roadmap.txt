@@ -15,11 +15,12 @@ move ./web/rncliapp to ./rncliapp
 hooks in rn-app
 	webpack: resolve.alias add 'react': path.resolve( appDirectory, 'node_modules/react' ),
 	webpack: resolve.alias add 'react-dom': path.resolve( appDirectory, 'node_modules/react-dom' ),
+add eslint
+	eslint-hooks 
 
 next step
 =========
-?add eslint
-	eslint-hooks 
+?eslint use eslint-config-react-app
 
 cra/package.json
   dependencies

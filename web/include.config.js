@@ -5,9 +5,10 @@ const { resolve } = require('path');
 //const appDirectory = resolve( __dirname, 'rncliapp')
 const appDirectory = resolve( __dirname, '../rncliapp')
 //console.log(appDirectory)
+const src = resolve( appDirectory, 'App' )
 
 const ar = [
-  resolve( appDirectory, 'App' ),
+  src,
 
   resolve( appDirectory, 'node_modules/react-navigation'),
   resolve( appDirectory, 'node_modules/@react-navigation'),
@@ -21,4 +22,7 @@ const ar = [
 ]
 //console.log(ar)
 
-module.exports = ar
+module.exports = {
+  src,
+  include: ar,
+}

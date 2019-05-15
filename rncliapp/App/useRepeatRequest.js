@@ -60,7 +60,7 @@ function useRepeatRequest(isOn, URL, delay, fnTransform) {
       }
       dispatch({ type: "request-success", payload: newData });
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       dispatch({ type: "request-error", payload: err });
     }
   }, [URL, fnTransform]);
@@ -77,6 +77,7 @@ function useRepeatRequest(isOn, URL, delay, fnTransform) {
       dispatch({ type: "session-pause" });
     }
   }, [isOn, delay, fnRequest]);
+//  }, [fnRequest]);
 
 
   const result = useMemo( () => {

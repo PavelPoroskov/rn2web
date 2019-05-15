@@ -3,12 +3,11 @@
 const path = require("path");
 const webpack = require("webpack");
 
-const arInclude = require("./include.config");
+const include = require("./include.config");
+const eslintrc = require("./.eslintrc");
 
 //const appDirectory = path.resolve(__dirname, '../');
 const appDirectory = path.resolve(__dirname);
-
-const appDirectory2 = path.resolve( __dirname, '../rncliapp/App')
 
 
 const eslintLoaderConfiguration = {
@@ -16,15 +15,15 @@ const eslintLoaderConfiguration = {
   enforce: 'pre',
   use: [
     {
-      // options: {
-      //   //formatter: require.resolve('react-dev-utils/eslintFormatter'),
-      //   eslintPath: require.resolve('eslint'),
-        
-      // },
+      options: {
+        //formatter: require.resolve('react-dev-utils/eslintFormatter'),
+        eslintPath: require.resolve('eslint'),
+        baseConfig: eslintrc,      
+      },
       loader: 'eslint-loader',
     },
   ],
-  include: [appDirectory, appDirectory2],
+  include: [appDirectory, include.src],
 };
 // This is needed for webpack to compile JavaScript.
 // Many OSS React Native packages are not compiled to ES5 before being
@@ -34,7 +33,7 @@ const eslintLoaderConfiguration = {
 const babelLoaderConfiguration = {
   test: /\.js$/,
   // Add every directory that needs to be compiled by Babel during the build.
-  include: [path.resolve(appDirectory, "index.js"), ...arInclude],
+  include: [path.resolve(appDirectory, "index.js"), ...include.include],
   use: {
     loader: "babel-loader",
     options: {
@@ -108,8 +107,8 @@ module.exports = {
       "react": path.resolve(appDirectory, "node_modules/react"),
       "react-dom": path.resolve(appDirectory, "node_modules/react-dom"),
 
-      "eslint": path.resolve(appDirectory, "node_modules/eslint"),
-      "eslint-loader": path.resolve(appDirectory, "node_modules/eslint-loader"),
+      // "eslint": path.resolve(appDirectory, "node_modules/eslint"),
+      // "eslint-loader": path.resolve(appDirectory, "node_modules/eslint-loader"),
     },
     // If you're working on a multi-platform React Native app, web-specific
     // module implementations should be written in files using the extension

@@ -85,7 +85,7 @@ const QuotesTableRow = ({ oRow }) => (
 )
 
 //to show last items of list
-const ListFooterComponent = (props) => (
+const ListFooterComponent = () => (
   <View>
     <View>
       <Text></Text>
