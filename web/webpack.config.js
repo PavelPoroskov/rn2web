@@ -8,6 +8,24 @@ const arInclude = require("./include.config");
 //const appDirectory = path.resolve(__dirname, '../');
 const appDirectory = path.resolve(__dirname);
 
+const appDirectory2 = path.resolve( __dirname, '../rncliapp/App')
+
+
+const eslintLoaderConfiguration = {
+  test: /\.(js|mjs|jsx|ts|tsx)$/,
+  enforce: 'pre',
+  use: [
+    {
+      // options: {
+      //   //formatter: require.resolve('react-dev-utils/eslintFormatter'),
+      //   eslintPath: require.resolve('eslint'),
+        
+      // },
+      loader: 'eslint-loader',
+    },
+  ],
+  include: [appDirectory, appDirectory2],
+};
 // This is needed for webpack to compile JavaScript.
 // Many OSS React Native packages are not compiled to ES5 before being
 // published. If you depend on uncompiled packages they may cause webpack build
@@ -66,7 +84,7 @@ module.exports = {
   // ...the rest of your config
 
   module: {
-    rules: [babelLoaderConfiguration, imageLoaderConfiguration]
+    rules: [eslintLoaderConfiguration, babelLoaderConfiguration, imageLoaderConfiguration]
   },
 
   resolve: {
@@ -88,7 +106,10 @@ module.exports = {
       //3. You might have more than one copy of React in the same app 
       //See https://fb.me/react-invalid-hook-call for tips about how to debug and fix this problem.
       "react": path.resolve(appDirectory, "node_modules/react"),
-      "react-dom": path.resolve(appDirectory, "node_modules/react-dom")
+      "react-dom": path.resolve(appDirectory, "node_modules/react-dom"),
+
+      "eslint": path.resolve(appDirectory, "node_modules/eslint"),
+      "eslint-loader": path.resolve(appDirectory, "node_modules/eslint-loader"),
     },
     // If you're working on a multi-platform React Native app, web-specific
     // module implementations should be written in files using the extension

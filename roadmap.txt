@@ -21,6 +21,40 @@ next step
 ?add eslint
 	eslint-hooks 
 
+cra/package.json
+  dependencies
+-    "@typescript-eslint/eslint-plugin": "1.6.0",
+-    "@typescript-eslint/parser": "1.6.0",
+    "babel-eslint": "10.0.1",
+    "eslint": "^5.16.0",
+-    "eslint-config-react-app": "^4.0.1",
+    "eslint-loader": "2.1.2",
+-    "eslint-plugin-flowtype": "2.50.1",
+    "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-jsx-a11y": "6.2.1",
+    "eslint-plugin-react": "7.12.4",
+    "eslint-plugin-react-hooks": "^1.5.0",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+cra/config/webpack.config.js
+        {
+          test: /\.(js|mjs|jsx|ts|tsx)$/,
+          enforce: 'pre',
+          use: [
+            {
+              options: {
+                formatter: require.resolve('react-dev-utils/eslintFormatter'),
+                eslintPath: require.resolve('eslint'),
+                
+              },
+              loader: require.resolve('eslint-loader'),
+            },
+          ],
+          include: paths.appSrc,
+        },
+
+
 
 //it vanished
 react-dom.development.js:506 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.
