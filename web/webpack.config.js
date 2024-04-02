@@ -77,7 +77,7 @@ module.exports = {
     publicPath: "/"
   },
   devServer: {
-    contentBase: "./build"
+    static: "./build"
   },
 
   // ...the rest of your config

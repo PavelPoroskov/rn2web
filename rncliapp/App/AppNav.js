@@ -8,31 +8,24 @@
 
 import React from 'react';
 //import React, {useState, useEffect, useCallback} from 'react';
-import {createStackNavigator, createAppContainer} from 'react-navigation';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 //import {AppContext, useAppIsActive} from './context'
 import AboutScreen from './AboutScreen'
 import QuotesScreen from './QuotesScreen'
 
+const Stack = createNativeStackNavigator();
 
-const MainNavigator = createStackNavigator({
-  About: {screen: AboutScreen},
-  Quotes: {screen: QuotesScreen},
-},
-{
-  //debug
-  //initialRouteName: "About",
-  initialRouteName: "Quotes"
-});
+function AppContainer() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Quotes">
+        <Stack.Screen name="Quotes" component={QuotesScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
-const AppContainer = createAppContainer(MainNavigator);
 export default AppContainer
-
-// class App extends React.Component {
-//   render() {
-//     console.log('render AppContainer')
-//     return <AppContainer />
-//   }
-// }
-
-// export default App

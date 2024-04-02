@@ -1,5 +1,5 @@
 import React from 'react';
-import {withNavigationFocus} from 'react-navigation';
+import { useIsFocused } from '@react-navigation/native';
 
 import useRepeatRequest from './useRepeatRequest';
 import useAppIsActive from './useAppIsActive';
@@ -10,10 +10,11 @@ import Loading from './Loading';
 import config from './config';
 
 
-const QuotesTableConnected = React.memo( (props) => {
+const QuotesTableConnected = React.memo( () => {
   
   const appIsActive = useAppIsActive()
-  const [loading, data, error, info] = useRepeatRequest( appIsActive && props.isFocused, config.URL, 5000, config.transformResult )
+  const isFocused = useIsFocused();
+  const [loading, data, error, info] = useRepeatRequest( appIsActive && isFocused, config.URL, 5000, config.transformResult )
   //console.log(`render QuotesTableConnected ${info.countRequest}`) 
 
   if (loading) {
@@ -28,4 +29,4 @@ const QuotesTableConnected = React.memo( (props) => {
 //before: first_render, second_render, render_after_request-success 
 //use React.memo() to not render second_render
 
-export default withNavigationFocus(QuotesTableConnected)
+export default QuotesTableConnected
